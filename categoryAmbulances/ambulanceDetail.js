@@ -32,8 +32,8 @@ fetch('catAmbulance.json')
                     <div class="col-md-6">
                         <img src="${ambulance.image}" class="img-fluid rounded" alt="${ambulance.title}">
                     </div>
-                    <div class="col-md-6">
-                        <h2>${ambulance.title}</h2>
+                    <div class="col-md-6 mt-5">
+                        <h2 class="text-center">${ambulance.title}</h2><br>
                         
                         <!-- Display Ambulance Type, Region, and Price -->
                         <p><strong>Type:</strong> ${ambulance.type}</p>

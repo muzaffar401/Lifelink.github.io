@@ -29,14 +29,14 @@
 
         body {
             background-image: url(/img/1.jpg);
-             background-repeat: no-repeat;
-             background-size: cover;
-           
+            background-repeat: no-repeat;
+            background-size: cover;
+
 
             background-size: cover;
             background-repeat: no-repeat;
             color: white;
-            height: 1000px;
+            height: 100vh;
         }
 
         .container {
@@ -128,19 +128,23 @@
             color: black;
             opacity: 0.5;
         }
-        .a{
-           
-            background-color: rgba(0, 0, 0, 0.548);
+
+        .a {
+
+            background-color: rgba(1, 95, 201, 0.2);
         }
-        #registerLink{
+
+        #registerLink {
             color: rgb(161, 204, 224) !important;
             font-weight: bold;
         }
-    .b{
-          text-decoration: none;  
+
+        .b {
+            text-decoration: none;
             color: rgb(255, 187, 0) !important;
         }
-        .b:hover{
+
+        .b:hover {
             text-decoration: underline;
             color: rgb(17, 52, 250) !important;
         }
@@ -158,16 +162,16 @@
 
     <div class="container a">
         <h1 style="color: #015fc9;">LOGIN</h1>
-        
+
         <p>Username:</p>
-        <input type="text" name="username" id="username"  class="form-control" onkeyup="validateUsername()">
+        <input type="text" name="username" id="username" class="form-control" onkeyup="validateUsername()">
         <span id="validationUsername"></span>
 
         <p>Password:</p>
         <div class="password-container">
-            <input type="password" name="password"   class="form-control " id="password" onkeyup="validatePassword()">
+            <input type="password" name="password" class="form-control " id="password" onkeyup="validatePassword()">
             <span class="toggle-password" onclick="togglePasswordVisibility()">
-                <i id="passwordIcon" class="fa fa-eye"  ></i>
+                <i id="passwordIcon" class="fa fa-eye"></i>
             </span>
         </div>
         <span id="validationPassword"></span><br>
@@ -194,11 +198,14 @@
             if (username === "") {
                 validationUsername.innerHTML = "Please fill out this field";
                 validationUsername.style.color = "red";
+                return false;
             } else if (!user && username !== "admin") {
                 validationUsername.innerHTML = "Incorrect Username";
                 validationUsername.style.color = "red";
+                return false;
             } else {
                 validationUsername.innerHTML = "";
+                return true;
             }
         }
 
@@ -213,64 +220,59 @@
             if (password === "") {
                 validationPassword.innerHTML = "Please fill out this field";
                 validationPassword.style.color = "red";
+                return false;
             } else if ((user && user.password !== password) || (username === "admin" && password !== "123")) {
                 validationPassword.innerHTML = "Incorrect Password";
                 validationPassword.style.color = "red";
+                return false;
             } else {
                 validationPassword.innerHTML = "";
+                return true;
             }
         }
 
         function validateAll() {
-            validateUsername();
-            validatePassword();
+            let isUsernameValid = validateUsername();
+            let isPasswordValid = validatePassword();
+            return isUsernameValid && isPasswordValid;
         }
 
         function login() {
             let username = document.querySelector("#username").value;
             let password = document.querySelector("#password").value;
 
-            validateAll();
-
-            let validationUsername = document.getElementById("validationUsername");
-            let validationPassword = document.getElementById("validationPassword");
-
-            validationUsername.innerHTML = "";
-            validationPassword.innerHTML = "";
-
-            if (username === "" || password === "") {
-                if (username === "") {
-                    validationUsername.innerHTML = "Please fill out this field";
-                    validationUsername.style.color = "red";
-                }
-                if (password === "") {
-                    validationPassword.innerHTML = "Please fill out this field";
-                    validationPassword.style.color = "red";
-                }
+            if (!validateAll()) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Please fix the errors before submitting!"
+                });
                 return;
             }
-
-
-
-
-
 
             let users = JSON.parse(localStorage.getItem("users")) || [];
             let user = users.find(user => user.username === username);
 
-            if (!user) {
-                validationUsername.innerHTML = "Incorrect Username";
-                validationUsername.style.color = "red";
-                validationPassword.innerHTML = "Incorrect Password";
-                validationPassword.style.color = "red";
-            } else if (user.password !== password) {
-                validationPassword.innerHTML = "Incorrect Password";
-                validationPassword.style.color = "red";
-            } else {
+            if (!user || (user.password !== password && username !== "admin")) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Login",
+                    text: "Incorrect Username or Password"
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: "Login successful!",
+                icon: "success",
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            }).then(() => {
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 window.location.href = "index.html";
-            }
+            });
         }
 
         function togglePasswordVisibility() {
@@ -289,11 +291,13 @@
         }
     </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/js/wow.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
 
 </body>
 
