@@ -1,3 +1,70 @@
+// Function to generate HTML for each card
+const generateCard = (ambulance) => {
+    return `
+        <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="service-item mb-5">
+                <div class="service-img">
+                    <img src="${ambulance.image}" class="img-fluid rounded-top w-100" alt="">
+                </div>
+                <div class="service-content p-4">
+                    <div class="service-content-inner">
+                        <a href="#" class="d-inline-block h4 mb-4">${ambulance.title}</a>
+                        <p class="mb-2" style="display: none;><strong>Type:</strong> ${ambulance.type}</p>
+                        <p class="mb-2" style="display: none;><strong>Region:</strong> ${ambulance.region}</p>
+                        <p class="mb-4" style="display: none;><strong>Price:</strong> ${ambulance.price}</p>
+                        <p class="mb-4" >${ambulance.text}</p>
+                        <!-- Button to redirect to the detail page -->
+                        <a href="ambulanceDetail.html?id=${ambulance.id}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+};
+
+// Function to generate a section for each ambulance type
+const generateSection = (ambulanceType, title) => {
+    const section = document.createElement('div');
+    section.classList.add('ambulance-section');
+
+    const heading = `<h2 class="mt-5 mb-3 text-center">${title}</h2>`;
+    let cardsHtml = '';
+
+    ambulanceType.forEach(ambulance => {
+        cardsHtml += generateCard(ambulance);
+    });
+
+    section.innerHTML = heading + `<div class="row">${cardsHtml}</div>`;
+    return section;
+};
+
+// Function to fetch JSON data and render it
+const fetchData = async () => {
+    try {
+        const response = await fetch('catAmbulance.json');
+        const data = await response.json();
+
+        const ambulanceContainer = document.getElementById('ambulance-container');
+        ambulanceContainer.appendChild(generateSection(data['ac-amb'], 'AC Ambulances'));
+        ambulanceContainer.appendChild(generateSection(data['non-ac-amb'], 'Non-AC Ambulances'));
+        ambulanceContainer.appendChild(generateSection(data['icu-amb'], 'ICU Ambulances'));
+        ambulanceContainer.appendChild(generateSection(data['iccu-amb'], 'ICCU Ambulances'));
+    } catch (error) {
+        console.error('Error fetching the ambulance data:', error);
+    }
+};
+
+// Call the function to fetch and render the data
+fetchData();
+
+
+
+
+
+
+
+
+
 (function ($) {
     "use strict";
 
@@ -123,6 +190,7 @@ function removeAccount() {
     alert('Account removed');
     window.location.href = 'index.html';
 }
+
 
 
 

@@ -27,7 +27,10 @@
         }
 
         body {
-            background-color: black;
+            background-image: url(/img/1.jpg);
+             background-repeat: no-repeat;
+             background-size: cover;
+           
 
             background-size: cover;
             background-repeat: no-repeat;
@@ -124,6 +127,22 @@
             color: black;
             opacity: 0.5;
         }
+        .a{
+           
+            background-color: rgba(0, 0, 0, 0.548);
+        }
+        #registerLink{
+            color: rgb(161, 204, 224) !important;
+            font-weight: bold;
+        }
+    .b{
+          text-decoration: none;  
+            color: rgb(255, 187, 0) !important;
+        }
+        .b:hover{
+            text-decoration: underline;
+            color: rgb(17, 52, 250) !important;
+        }
     </style>
 </head>
 
@@ -136,24 +155,24 @@
         </div>
     </div>
 
-    <div class="container">
-        <h1>LOGIN</h1>
-
-        <p>Username</p>
-        <input type="text" name="username" id="username" onkeyup="validateUsername()">
+    <div class="container a">
+        <h1 style="color: #015fc9;">LOGIN</h1>
+        
+        <p>Username:</p>
+        <input type="text" name="username" id="username"  class="form-control" onkeyup="validateUsername()">
         <span id="validationUsername"></span>
 
-        <p>Password</p>
+        <p>Password:</p>
         <div class="password-container">
-            <input type="password" name="password" id="password" onkeyup="validatePassword()">
+            <input type="password" name="password"   class="form-control " id="password" onkeyup="validatePassword()">
             <span class="toggle-password" onclick="togglePasswordVisibility()">
-                <i id="passwordIcon" class="fa fa-eye"></i>
+                <i id="passwordIcon" class="fa fa-eye"  ></i>
             </span>
         </div>
         <span id="validationPassword"></span><br>
 
         <button onclick="login()">Sign in</button>
-        <p id="registerLink">Don't have an account? <a href="registeration.html">Register here</a></p>
+        <p id="registerLink">Don't have an account? <a href="registeration.html" class="b">Register here</a></p>
     </div>
 
     <script>

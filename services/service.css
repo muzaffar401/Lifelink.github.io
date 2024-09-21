@@ -284,12 +284,12 @@
 /*** Single Page Hero Header End ***/
 
 
-
 /*** Feature Start ***/
 .feature .feature-item {
     border-radius: 10px;
     background: var(--bs-white);
     transition: 0.5s;
+    height: 450px;
 }
 
 .feature .feature-item:hover {
@@ -1050,3 +1050,23 @@ a.sidebar-link {
 
 
 
+    
+#traslate {
+    transition: transform 0.5s ease;
+
+
+}
+
+#traslate:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transform: scale(1.1);
+
+}
+
+.circle {
+    border-radius: 50% !important;
+    width: 90%;
+    border: 2px solid;
+    padding: 1px;
+
+}

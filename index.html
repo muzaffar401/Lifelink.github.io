@@ -3,14 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Lifelink</title>
+    <title>Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-
-
-    <!-- Icon Font Stylesheet -->
+ 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -18,7 +16,7 @@
 
 
 
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/about-us/about.css" rel="stylesheet">
 </head>
 
 <body>
@@ -87,18 +85,18 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-0 mx-lg-auto">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="galery.html" class="nav-item nav-link">Gallery</a>
+                        <a href="about-us/about_us.html" class="nav-item nav-link">About</a>
+                        <a href="services/service.html" class="nav-item nav-link">Services</a>
+                        <a href="gallery/gallery.html" class="nav-item nav-link">Gallery</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                 <span class="dropdown-toggle">Types of Vehicle</span>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">AC</a>
-                                <a href="#" class="dropdown-item">NON AC</a>
-                                <a href="#" class="dropdown-item">ICU</a>
-                                <a href="#" class="dropdown-item">ICCU</a>
+                                <a href="categoryAmbulances/catAmbulance.html" class="dropdown-item">AC</a>
+                                <a href="categoryAmbulances/catAmbulance.html" class="dropdown-item">NON AC</a>
+                                <a href="categoryAmbulances/catAmbulance.html" class="dropdown-item">ICU</a>
+                                <a href="categoryAmbulances/catAmbulance.html" class="dropdown-item">ICCU</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
@@ -106,16 +104,17 @@
                                 <span class="dropdown-toggle">Pages</span>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Feedback</a>
-                                <a href="#" class="dropdown-item">Site Map</a>
-                                <a href="#" class="dropdown-item">FAQs</a>
+                                <a href="ambulances/ambulances.html" class="dropdown-item">All Ambulances</a>
+                                <a href="feedback/feedback.html" class="dropdown-item">Feedback</a>
+                                <a href="sitemap/sitemap.html" class="dropdown-item">Site Map</a>
+                                <a href="faqs/faqs.html" class="dropdown-item">FAQs</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contact-us/contact.html" class="nav-item nav-link">Contact</a>
                         <div class="nav-btn px-3">
-                            <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0"
+                            <!-- <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0"
                                 data-bs-toggle="modal" data-bs-target="#searchModal"><i
-                                    class="fas fa-search"></i></button>
+                                    class="fas fa-search"></i></button> -->
                             <button class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0" id="userAccount"
                                 type="button" onclick="redirectToLogin()">
                                 <i class="fas fa-user-circle"></i> <span id="accountText">Sign Up/Login</span>
@@ -126,27 +125,32 @@
 
             </nav>
 
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile"
+                aria-labelledby="offcanvasProfileLabel">
                 <div class="offcanvas-header">
                     <h5 id="offcanvasProfileLabel">Profile</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body" id="profile">
                     <div class="d-flex flex-column align-items-center">
-                        <img id="profileImage" src="user-image-with-black-background.png" alt="Profile Image" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+                        <img id="profileImage" src="/img/user-image-with-black-background.png" alt="Profile Image"
+                            class="rounded-circle mb-3" style="width: 100px; height: 100px;">
                         <p id="userName" class="mb-3 text-dark fw-bold fs-3"></p>
-                        
+
                         <!-- Change Profile Image Button -->
-                        <button class="btn btn-outline-primary mb-3" onclick="document.getElementById('fileInput').click()">
+                        <button class="btn btn-outline-primary mb-3"
+                            onclick="document.getElementById('fileInput').click()">
                             <i class="fas fa-camera-retro"></i> Change Profile Image
                         </button>
-                        <input type="file" id="fileInput" accept="image/*" onchange="updateProfileImage()" style="display: none;">
-                        
+                        <input type="file" id="fileInput" accept="image/*" onchange="updateProfileImage()"
+                            style="display: none;">
+
                         <!-- Logout Button -->
                         <button class="btn btn-outline-secondary mb-3" onclick="logout()">
                             <i class="fas fa-door-open"></i> Logout
                         </button>
-                        
+
                         <!-- Remove Account Button -->
                         <button class="btn btn-outline-danger" onclick="removeAccount()">
                             <i class="fas fa-user-times"></i> Remove Account
@@ -154,7 +158,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- Navbar & Hero End -->
@@ -180,17 +184,18 @@
     </div>
     <!-- Modal Search End -->
 
-
+    <!-- slider -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/img/dark.jpeg" class="d-block w-100" alt="...">
+                <img src="/img/1.avif" class="d-block w-100" alt="...">
+                <!-- <img src="/img/dark.jpeg" class="d-block w-100" alt="..."> -->
             </div>
             <div class="carousel-item">
-                <img src="/img/AdobeStock_850306085_Preview.jpeg" class="d-block w-100" alt="...">
+                <img src="/img/2.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/img/AdobeStock_935924927_Preview.jpeg" class="d-block w-100" alt="...">
+                <img src="/img/1.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -203,98 +208,35 @@
         </button>
     </div>
 
-
-
-
-    <div class="container-fluid feature bg-light py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Features</h4>
-                <h1 class="display-4 mb-4">Insurance Provide you a Better Future</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="far fa-handshake fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">Trusted Company</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-dollar-sign fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">Anytime Money Back</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-bullseye fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">Flexible Plans</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="feature-item p-4 pt-0">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fa fa-headphones fa-3x"></i>
-                        </div>
-                        <h4 class="mb-4">24/7 Fast Support</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
     <!-- About Start -->
-    <div class="container-fluid bg-light about pb-5">
+    <div class="container-fluid bg-light about pb-5 mt-5">
         <div class="container pb-5">
             <div class="row g-5">
-                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="col-xl-6 wow fadeInLeft " data-wow-delay="0.2s" data-aos="fade-down">
                     <div class="about-item-content bg-white rounded p-5 h-100">
-                        <h4 class="text-primary">About Our Company</h4>
-                        <h1 class="display-4 mb-4">High Range of Exploring Protection</h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt debitis sint tempora. Corporis
-                            consequatur illo blanditiis voluptates aperiam quos aliquam totam aliquid rem explicabo,
+                        <h4 class="text-primary">About LifeLink</h4>
+                        <h1 class="display-4 mb-4"> About E-Ambulances</h1>
+                        <p>
+                            Welcome to e-Ambulances, your go-to platform for reliable, quick, and efficient ambulance
+                            services. Our mission is to revolutionize emergency medical response by leveraging
+                            technology to provide fast access to ambulances whenever and wherever needed.
                         </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae praesentium recusandae
-                            eligendi modi hic
+                        <p>
+                            At e-Ambulances, we understand the critical importance of timely medical assistance, which
+                            is why our services are designed to offer:
                         </p>
-                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>We can save your money.</p>
-                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Production or trading of good
+                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i> 24/7 Service Available
+                            round-the-clock for emergencies anytime, anywhere.</p>
+                        <p class="text-dark"><i class="fa fa-check text-primary me-3"></i> Real-Time Tracking Track your
+                            ambulance in real-time with accurate GPS.
                         </p>
-                        <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i>Our life insurance is
+                        <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i> Access ambulances from a
+                            vast network across multiple regions
                             flexible</p>
                         <a class="btn btn-primary rounded-pill py-3 px-5" href="#">More Information</a>
                     </div>
                 </div>
-                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s" data-aos="fade-down">
                     <div class="bg-white rounded p-5 h-100">
                         <div class="row g-4 justify-content-center">
                             <div class="col-12">
@@ -302,34 +244,34 @@
                                     <img src="img/about-1.png" class="img-fluid rounded w-100" alt="">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mt-5  ">
                                 <div class="counter-item bg-light rounded p-3 h-100">
-                                    <div class="counter-counting">
+                                    <div class="counter-counting  ">
                                         <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">129</span>
                                         <span class="h1 fw-bold text-primary">+</span>
                                     </div>
-                                    <h4 class="mb-0 text-dark">Insurance Policies</h4>
+                                    <h4 class="mb-0 text-dark">Ambulances</h4>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mt-5">
                                 <div class="counter-item bg-light rounded p-3 h-100">
                                     <div class="counter-counting">
-                                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">99</span>
+                                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">999</span>
                                         <span class="h1 fw-bold text-primary">+</span>
                                     </div>
                                     <h4 class="mb-0 text-dark">Awards WON</h4>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mt-5">
                                 <div class="counter-item bg-light rounded p-3 h-100">
                                     <div class="counter-counting">
                                         <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">556</span>
                                         <span class="h1 fw-bold text-primary">+</span>
                                     </div>
-                                    <h4 class="mb-0 text-dark">Skilled Agents</h4>
+                                    <h4 class="mb-0 text-dark">Skilled Drivers</h4>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mt-5">
                                 <div class="counter-item bg-light rounded p-3 h-100">
                                     <div class="counter-counting">
                                         <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">967</span>
@@ -346,31 +288,151 @@
     </div>
     <!-- About End -->
 
-    <!-- Service Start -->
+
+
+    <!-- gallery Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary fw-bold" data-aos="fade-down">Pakistan Ambulances</h4>
+                <h1 class="display-4 mb-4" data-aos="fade-down">News And Updates</h1>
+                <p class="mb-0" data-aos="fade-down"> **Life Link provides a range of ambulance services, including ICU,
+                    ICCU, A/C, and non-A/C ambulances. Each vehicle is equipped with advanced medical equipment and
+                    staffed by trained professionals.
+                    Our services are designed to ensure optimal care and comfort for patients during transport.**
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- 1 -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/amb4.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span>Karachi Ambulances</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2-->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/amb5.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span>Lahore Ambulances</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/amb58.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span> Balochistan Ambulances</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="col-lg-6 col-xl-4  mt-5 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/am1.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span> Islamabad Ambulances</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--  5-->
+                <div class="col-lg-6 col-xl-4  mt-5 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/amb6.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span>Multan Ambulances</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="col-lg-6 col-xl-4  mt-5 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="img/am3.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <div class="blog-categiry py-2 px-4">
+                                <span>Faislabad Ambulance</span>
+                            </div>
+                        </div>
+                        <div class="blog-content p-4">
+
+
+                            <a href="#" class="btn p-0"> View More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Service ambulances Start -->
     <div class="container-fluid service py-5">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Services</h4>
-                <h1 class="display-4 mb-4">We Provide Best Services</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
+                <h4 class="text-primary" data-aos="fade-down">Our Services</h4>
+                <h1 class="display-4 mb-4" data-aos="fade-down">We Provide Best Services</h1>
+                <p class="mb-0" data-aos="fade-down"> Ambulance services, including ICU, ICCU, A/C, and non-A/C
+                    ambulances. Each vehicle is equipped with advanced medical equipment and staffed by trained
+                    professionals.
+                    Our services are designed to ensure optimal care and comfort for patients during transport.
                 </p>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
+                            <img src="img/amb58.jpg" class="img-fluid rounded-top w-100" alt="">
                             <div class="service-icon p-3">
                                 <i class="fa fa-users fa-2x"></i>
                             </div>
                         </div>
                         <div class="service-content p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Life Insurance</a>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-                                    eum!</p>
+                                <a href="#" class="d-inline-block h4 mb-4">A/C Ambulance</a>
+                                <p class="mb-4" style="text-align: justify;"> Equipped with climate control for patient
+                                    comfort and stability during transport. Maintains optimal temperature, ensuring a
+                                    stress-free journey in all weather conditions.</p>
                                 <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
                             </div>
                         </div>
@@ -379,16 +441,18 @@
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
+                            <img src="img/amb4.jpg" class="img-fluid rounded-top w-100" alt="">
                             <div class="service-icon p-3">
                                 <i class="fa fa-hospital fa-2x"></i>
                             </div>
                         </div>
                         <div class="service-content p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Health Insurance</a>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-                                    eum!</p>
+                                <a href="#" class="d-inline-block h4 mb-4"> Non-A/C Ambulance</a>
+                                <p class="mb-4" style="text-align: justify;"> Provides essential medical care with a
+                                    focus on cost-efficiency.
+                                    Ideal for situations where air conditioning is not required but medical support
+                                    remains a priority</p>
                                 <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
                             </div>
                         </div>
@@ -397,16 +461,18 @@
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
+                            <img src="img/amb58.jpg" class="img-fluid rounded-top w-100" alt="">
                             <div class="service-icon p-3">
                                 <i class="fa fa-car fa-2x"></i>
                             </div>
                         </div>
                         <div class="service-content p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Car Insurance</a>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-                                    eum!</p>
+                                <a href="#" class="d-inline-block h4 mb-4"> ICU Ambulance</a>
+                                <p class="mb-4" style="text-align: justify;"> Designed for intensive care with
+                                    state-of-the-art equipment and monitoring systems.
+                                    Provides immediate, specialized medical support for critically ill patients during
+                                    transit</p>
                                 <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
                             </div>
                         </div>
@@ -415,28 +481,33 @@
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="img/blog-4.png" class="img-fluid rounded-top w-100" alt="">
+                            <img src="img/amb9.jpg" class="img-fluid rounded-top w-100" alt="">
                             <div class="service-icon p-3">
-                                <i class="fa fa-home fa-2x"></i>
+                                <!-- <i class="fa fa-home fa-2x"></i> -->
+                                <i class="fa-solid fa-truck-medical fa-2x"></i>
                             </div>
                         </div>
                         <div class="service-content p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">Home Insurance</a>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-                                    eum!</p>
+                                <a href="#" class="d-inline-block h4 mb-4"> ICCU Ambulance</a>
+                                <p class="mb-4" style="text-align: justify;">
+                                    Equipped with advanced life support systems for critical care on the go.
+                                    Our specialized team ensures prompt and effective medical attention during
+                                    transportation.
+                                </p>
                                 <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-12 text-center wow fadeInUp mt-5" data-wow-delay="0.2s">
                     <a class="btn btn-primary rounded-pill py-3 px-5" href="#">More Services</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Service End -->
+
 
     <!-- FAQs Start -->
     <div class="container-fluid faq-section bg-light py-5">
@@ -445,24 +516,25 @@
                 <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                     <div class="h-100">
                         <div class="mb-5">
-                            <h4 class="text-primary">Some Important FAQ's</h4>
-                            <h1 class="display-4 mb-0">Common Frequently Asked Questions</h1>
+                            <h4 class="text-primary" data-aos="fade-down" id="Faqs">Some Important FAQ's</h4>
+                            <h1 class="display-4 mb-0" data-aos="fade-down">Common Frequently Asked Questions</h1>
                         </div>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button border-0" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Q: What happens during Freshers' Week?
+                                        Q: What types of ambulances does Life Link offer?
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show active"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body rounded">
-                                        A: Leverage agile frameworks to provide a robust synopsis for high level
-                                        overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. Organically grow the holistic
-                                        world view of disruptive innovation via workplace diversity and empowerment.
+                                        A: Life Link offers a variety of ambulances to meet different needs, including
+                                        ICU ambulances, ICCU ambulances, A/C ambulances, and non-A/C ambulances. Each
+                                        type is equipped to provide
+                                        the appropriate level of care and comfort based on patient requirements and
+                                        transport conditions.
                                     </div>
                                 </div>
                             </div>
@@ -470,16 +542,16 @@
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Q: What is the transfer application process?
+                                        Q: How do Life Link ambulances ensure patient comfort?
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        A: Leverage agile frameworks to provide a robust synopsis for high level
-                                        overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. Organically grow the holistic
-                                        world view of disruptive innovation via workplace diversity and empowerment.
+                                        A: We use climate-controlled A/C ambulances to maintain a comfortable
+                                        temperature.
+                                        Our staff is trained to provide compassionate care and manage patient needs
+                                        throughout the journey.
                                     </div>
                                 </div>
                             </div>
@@ -488,16 +560,14 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        Q: Why should I attend community college?
+                                        Q: Is Life Link ambulance service available 24/7?
                                     </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        A: Leverage agile frameworks to provide a robust synopsis for high level
-                                        overviews. Iterative approaches to corporate strategy foster collaborative
-                                        thinking to further the overall value proposition. Organically grow the holistic
-                                        world view of disruptive innovation via workplace diversity and empowerment.
+                                        A: Yes, Life Link ambulances are available 24/7 to respond to emergencies and
+                                        provide reliable medical transport at any time.
                                     </div>
                                 </div>
                             </div>
@@ -512,90 +582,76 @@
     </div>
     <!-- FAQs End -->
 
-    <!-- Blog Start -->
-    <div class="container-fluid blog py-5">
+
+
+    <!-- our services -->
+    <div class="container-fluid feature bg-light py-5">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">From Blog</h4>
-                <h1 class="display-4 mb-4">News And Updates</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
+                <h4 class="text-primary" data-aos="fade-down" id="services">Our Services</h4>
+                <h1 class="display-4 mb-4" data-aos="fade-down"> Your Lifeline in Emergencies</h1>
+                <p class="mb-0" data-aos="fade-down">
+                    In critical moments, an ambulance can be the difference between life and death, providing rapid
+                    response and expert care when you need it most. With the assurance of health insurance, you can
+                    access these life-saving services without the worry of unexpected costs,
+                    ensuring you're protected during life's most urgent times. </p>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-item p-4 pt-0">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="far fa-handshake fa-3x"></i>
                         </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down insurance bills</a>
-                            <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta
-                                impedit eligendi? Quibusdam, laudantium.</p>
-                            <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
-                        </div>
+                        <h4 class="mb-4">Trusted Company</h4>
+                        <p class="mb-4" style="text-align: justify;">
+
+                            Our reputation for reliability and excellence is built on years of dedicated service and a
+                            commitment
+                            to quality. You can trust us to deliver exceptional care and support .
+                        </p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-item p-4 pt-0">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa fa-dollar-sign fa-3x"></i>
                         </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to provide</a>
-                            <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta
-                                impedit eligendi? Quibusdam, laudantium.</p>
-                            <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
-                        </div>
+                        <h4 class="mb-4"> Emergency Care:</h4>
+                        <p class="mb-4" style="text-align: justify;"> Emergency care provides immediate treatment for
+                            life-threatening conditions, focusing on stabilizing patients and urgent interventions.
+                        </p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                            <div class="blog-categiry py-2 px-4">
-                                <span>Business</span>
-                            </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-item p-4 pt-0">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa fa-bullseye fa-3x"></i>
                         </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                            </div>
-                            <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to provide</a>
-                            <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta
-                                impedit eligendi? Quibusdam, laudantium.</p>
-                            <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
+                        <h4 class="mb-4">Immediate Response Units</h4>
+                        <p class="mb-4" style="text-align: justify;"> Ambulances available around the clock to provide
+                            urgent medical care and transport to the nearest hospital or medical facility.
+                        </p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="feature-item p-4 pt-0">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa fa-headphones fa-3x"></i>
                         </div>
+                        <h4 class="mb-4">24/7 Fast Support</h4>
+                        <p class="mb-4" style="text-align: justify;"> No matter the time or situation, our 24/7 fast
+                            support ensures that help is always just a call away.
+                            Day or night, we're here to provide quick, reliable assistance when you need it most.
+                        </p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Blog End -->
-
-   
-
-
-
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
@@ -627,76 +683,57 @@
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="footer-item">
                                     <h4 class="text-white mb-4">Useful Links</h4>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Features</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Blogs</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                                    <a href="about-us/about_us.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                                    <a href="gallery/gallery.html"><i class="fas fa-angle-right me-2"></i> Gallery</a>
+                                    <a href="services/service.html"><i class="fas fa-angle-right me-2"></i> Services</a>
+                                    <a href="faqs/faqs.html"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
+                                    <a href="sitemap/sitemap.html"><i class="fas fa-angle-right me-2"></i> Site Map</a>
+                                    <a href="contact-us/contact.html"><i class="fas fa-angle-right me-2"></i> Contact</a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-4">
                                 <div class="footer-item">
-                                    <h4 class="mb-4 text-white">Instagram</h4>
+                                    <h4 class="mb-4 text-white">Gallery</h4>
                                     <div class="row g-3">
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-1.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-1.jpg"
-                                                        data-lightbox="footerInstagram-1" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-69052.jpg"
+                                                    class="img-fluid w-100" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-2.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-2.jpg"
-                                                        data-lightbox="footerInstagram-2" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
+                                                    class="img-fluid w-100" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-3.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-3.jpg"
-                                                        data-lightbox="footerInstagram-3" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
+                                                    class="img-fluid w-100" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-4.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-4.jpg"
-                                                        data-lightbox="footerInstagram-4" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
+                                                    class="img-fluid w-100" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-5.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-5.jpg"
-                                                        data-lightbox="footerInstagram-5" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
+                                                    class="img-fluid w-100" alt="">
+
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="footer-instagram rounded">
-                                                <img src="img/instagram-footer-6.jpg" class="img-fluid w-100" alt="">
-                                                <div class="footer-search-icon">
-                                                    <a href="img/instagram-footer-6.jpg"
-                                                        data-lightbox="footerInstagram-6" class="my-auto"><i
-                                                            class="fas fa-link text-white"></i></a>
-                                                </div>
+                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
+                                                    class="img-fluid w-100" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -723,22 +760,18 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-6 text-center text-md-end mb-md-0">
-                    <span class="text-body"><a href="#" class="border-bottom text-white"><i
-                                class="fas fa-copyright text-light me-2"></i>Lifelink</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 text-center text-md-start text-body">
-                    Designed By <a class="border-bottom text-white" href="#">SFC ALERT</a> </a>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
+
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/wow.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

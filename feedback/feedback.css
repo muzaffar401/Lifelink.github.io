@@ -1,3 +1,15 @@
+.feedback {
+    max-width: 360px;
+    background-color: #333;
+    width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -282,7 +294,6 @@
 }
 
 /*** Single Page Hero Header End ***/
-
 
 
 /*** Feature Start ***/
@@ -881,21 +892,32 @@ a.view-demo:hover {
 }
 
 .text-primary {
-    color: #007bff; /* Matches the blue color */
+    color: #007bff;
+    /* Matches the blue color */
 }
 
 .fas.fa-plus {
-    font-size: 1em; /* Adjust size as needed */
-    color: #007bff; /* Blue color */
-    border: 2px solid #007bff; /* Optional: adds a border if needed */
-    border-radius: 50%; /* Makes it circular */
-    padding: 5px; /* Adjust padding to fit inside the border */
-    background-color: #ffffff; /* Optional: set a background color to match the style */
+    font-size: 1em;
+    /* Adjust size as needed */
+    color: #007bff;
+    /* Blue color */
+    border: 2px solid #007bff;
+    /* Optional: adds a border if needed */
+    border-radius: 50%;
+    /* Makes it circular */
+    padding: 5px;
+    /* Adjust padding to fit inside the border */
+    background-color: #ffffff;
+    /* Optional: set a background color to match the style */
 }
+
 #userAccount i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Adjust icon size */
-    color: #ffffff; /* Ensures the icon matches the button text color */
+    margin-right: 8px;
+    /* Space between icon and text */
+    font-size: 1.2em;
+    /* Adjust icon size */
+    color: #ffffff;
+    /* Ensures the icon matches the button text color */
 }
 
 
@@ -953,14 +975,18 @@ a.view-demo:hover {
 .btn-close {
     float: right !important;
 }
+
 #profileImage {
-    border: 2px solid #ddd; /* Optional: adds a subtle border around the image */
+    border: 2px solid #ddd;
+    /* Optional: adds a subtle border around the image */
     padding: 5px;
 }
 
 #profile button i {
-    margin-right: 8px; /* Adds spacing between the icon and button text */
-    font-size: 1.1em; /* Adjust icon size to fit with the text */
+    margin-right: 8px;
+    /* Adds spacing between the icon and button text */
+    font-size: 1.1em;
+    /* Adjust icon size to fit with the text */
 }
 
 
@@ -1049,4 +1075,20 @@ a.sidebar-link {
 
 
 
+.validation-message {
+    color: red;
+}
 
+.rating-stars i {
+    font-size: 30px;
+    color: #ccc;
+    /* Default star color */
+    cursor: pointer;
+}
+
+.rating-stars i.selected,
+.rating-stars i:hover,
+.rating-stars i:hover~i {
+    color: #ffcc00;
+    /* Highlighted star color */
+}

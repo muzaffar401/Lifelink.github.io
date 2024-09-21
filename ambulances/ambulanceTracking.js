@@ -1,3 +1,66 @@
+const statusMessage = document.getElementById('statusMessage');
+const cancelButton = document.getElementById('cancelButton');
+const mapContainer = document.getElementById('mapContainer');
+const ambulance = document.getElementById('ambulance');
+const timerSpan = document.getElementById('timer');
+const userName = document.getElementById('userName1');
+const locationDetails = document.getElementById('locationDetails');
+let countdown = 10;
+
+// Hide user name and location initially
+userName.style.display = 'none';
+locationDetails.style.display = 'none';
+
+// Fetch the user data from local storage
+const ambulanceBookingData = JSON.parse(localStorage.getItem('ambulanceBookingData'));
+
+// Cancel Button Logic
+cancelButton.addEventListener('click', function () {
+    if (confirm("Are you sure you want to cancel the booking?")) {
+        window.location.href = 'ambulanceform.html';
+    }
+});
+
+// Countdown timer logic
+const countdownInterval = setInterval(() => {
+    countdown--;
+    timerSpan.textContent = countdown;
+
+    if (countdown === 0) {
+        clearInterval(countdownInterval);
+
+        // Update status message and hide cancel button
+        statusMessage.textContent = "Status: Ambulance on the way...";
+        cancelButton.style.display = 'none';
+
+        // Show the map and start animation
+        mapContainer.style.display = 'block';
+        ambulance.style.animationPlayState = 'running';
+
+        // Display user name and location after the countdown
+        if (ambulanceBookingData) {
+            userName.style.display = 'block';
+            userName.textContent = `Welcome, ${ambulanceBookingData.name}`;
+            locationDetails.style.display = 'block';
+            locationDetails.textContent = `Your location: ${ambulanceBookingData.region}, ${ambulanceBookingData.city}, ${ambulanceBookingData.area}`;
+        } else {
+            userName.textContent = 'Welcome, Guest';
+            locationDetails.textContent = 'Your location: Unknown';
+        }
+
+        // Trigger animation completion logic after 30 seconds
+        setTimeout(() => {
+            // Clear ambulanceBookingData from local storage
+            localStorage.removeItem('ambulanceBookingData');
+
+            // Show the thank you alert and redirect to index
+            alert('Thank you for using our service!');
+            window.location.href = '/index.html';
+        }, 30000); // 30 seconds for the animation
+    }
+}, 1000); // 1 second intervals for countdown
+
+
 (function ($) {
     "use strict";
 
