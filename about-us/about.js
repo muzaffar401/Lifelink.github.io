@@ -1,85 +1,3 @@
-// Function to get query parameter (id from the URL)
-const getQueryParam = (param) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-};
-
-// Function to find the ambulance by ID
-const findAmbulanceById = (id, data) => {
-    for (const category in data) {
-        const ambulance = data[category].find(item => item.id == id);
-        if (ambulance) return ambulance;
-    }
-    return null;
-};
-
-// Fetch ambulance data from JSON
-fetch('catAmbulance.json')
-    .then(response => response.json())
-    .then(data => {
-        // Get the ID from the URL
-        const ambulanceId = getQueryParam('id');
-
-        // Fetch the ambulance data based on the ID
-        const ambulance = findAmbulanceById(ambulanceId, data);
-
-        // Generate the HTML and inject it into the page
-        const ambulanceDetailsContainer = document.getElementById('ambulance-details');
-
-        if (ambulance) {
-            ambulanceDetailsContainer.innerHTML = `
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="${ambulance.image}" class="img-fluid rounded custom-img-height" alt="${ambulance.title}">
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <h2 class="text-center text-primary">${ambulance.title}</h2><br>
-                        
-                        <!-- Display Ambulance Type, Region, and Price -->
-                        <p><strong>Type:</strong> ${ambulance.type}</p>
-                        <p><strong>Region:</strong> ${ambulance.region}</p>
-                        <p><strong>Price:</strong> ${ambulance.price}</p>
-                        
-                        <p>${ambulance.text}</p>
-
-                        <!-- Dropdown for ambulance sizes -->
-                        <div class="mb-4">
-                            <label for="ambulanceSize" class="form-label"><strong>Select Ambulance Size:</strong></label>
-                            <select id="ambulanceSize" class="form-select" aria-label="Select ambulance size">
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
-                        </div>
-
-                        <!-- Book Now button -->
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary" onclick="bookAmbulance('${ambulance.id}')">Book Now</button>
-                            <a href="catAmbulance.html" class="btn btn-primary">Back to Ambulances</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        } else {
-            ambulanceDetailsContainer.innerHTML = `<p>Ambulance not found.</p>`;
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching ambulance data:', error);
-        const ambulanceDetailsContainer = document.getElementById('ambulance-details');
-        ambulanceDetailsContainer.innerHTML = `<p>Error loading ambulance data. Please try again later.</p>`;
-    });
-
-// Book Now function
-function bookAmbulance(ambulanceId) {
-    const ambulanceSize = document.getElementById('ambulanceSize').value;
-
-    // Redirect to the form page with query parameters (e.g., ambulance ID and size)
-    window.location.href = `/ambulances/ambulanceform.html?id=${ambulanceId}&size=${ambulanceSize}`;
-}
-
-
-
 (function ($) {
     "use strict";
 
@@ -198,7 +116,7 @@ function logout() {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('currentUser');
         localStorage.removeItem('activeUserType');
-        location.assign('ambulanceDetail.html');
+        location.assign('about_us.html');
     });
 
 }
@@ -229,13 +147,9 @@ function removeAccount() {
         localStorage.removeItem('currentUser');
 
         // Redirect to index page
-        window.location.href = 'ambulanceDetail.html';
+        window.location.href = 'about_us.html';
     });
 }
-
-
-
-
 
 
 

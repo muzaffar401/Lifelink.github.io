@@ -1,156 +1,4 @@
-
-
-.map-container {
-    position: relative;
-    width: 90%;
-    height: 400px;
-    background-color: #c2e59c;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url(pngwing.com.png);
-    display: none;
-}
-
-.start-point,
-.end-point {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    text-align: center;
-    color: #fff;
-}
-
-.start-point {
-    top: 43px;
-    left: 35px;
-    background-image: url(—Pngtree—small\ restaurant\ building\ vector\ with_5484646.png);
-}
-
-.end-point {
-    top: 98px;
-    right: 17px;
-    background-image: url(enterprise.png);
-}
-
-#ambulance {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-image: url(/ambulances/—Pngtree—ambulance\ car\ icon\ design\ illustration_5345009.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: ride 30s linear forwards;
-    top: -80px;
-}
-
-/* Road path instead of a line */
-#road-path {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.road {
-    stroke: transparent;
-    stroke-width: 3;
-    fill: none;
-}
-
-.road-image {
-    position: absolute;
-}
-
-.status-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.status-message {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.cancel-button {
-    background-color: #ff4b5c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#userName1 {
-    font-size: 50px;
-    font-weight: bold;
-    color: #015fc9;
-    /* Green color */
-    text-align: center;
-    margin-top: 20px;
-}
-
-#locationDetails {
-    font-size: 25px;
-    color: #333;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Keyframes for moving the bike rider along the path */
-@keyframes ride {
-    0% {
-        transform: translate(100px, 120px) rotate(0deg);
-    }
-
-    10% {
-        transform: translate(170px, 120px) rotate(15deg);
-    }
-
-    20% {
-        transform: translate(280px, 220px) rotate(40deg);
-    }
-
-    30% {
-        transform: translate(370px, 160px) rotate(-20deg);
-    }
-
-    40% {
-        transform: translate(460px, 200px) rotate(20deg);
-    }
-
-    50% {
-        transform: translate(550px, 195px) rotate(10deg);
-    }
-
-    60% {
-        transform: translate(640px, 120px) rotate(-25deg);
-    }
-
-    70% {
-        transform: translate(730px, 100px) rotate(-20deg);
-    }
-
-    80% {
-        transform: translate(820px, 160px) rotate(25deg);
-    }
-
-    90% {
-        transform: translate(910px, 196px) rotate(10deg);
-    }
-
-    100% {
-        transform: translate(1060px, 210px) rotate(0deg);
-    }
-}
-
-** Spinner Start **
+/*** Spinner Start ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -436,6 +284,7 @@
 /*** Single Page Hero Header End ***/
 
 
+
 /*** Feature Start ***/
 .feature .feature-item {
     border-radius: 10px;
@@ -657,6 +506,7 @@
 .blog .blog-item {
     border-radius: 10px;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .blog .blog-item:hover {
@@ -695,6 +545,7 @@
     transition: 0.5s;
     z-index: 1;
 }
+
 
 .blog .blog-item:hover .blog-img::after {
     height: 100%;
@@ -1183,6 +1034,10 @@ li {
     /* Faster transition */
 }
 
+
+
+
+
 a.sidebar-link {
     padding: .625rem 1rem;
     color: #000000;
@@ -1207,4 +1062,46 @@ a.sidebar-link {
 .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
     transition: all .2s ease-out;
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profileImage {
+    transition: all 0.3s ease;
+}
+
+#profileImage:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close-white {
+    filter: invert(1);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn {
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #004085;
+    border-color: #003566;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+    border-color: #c62828;
 }

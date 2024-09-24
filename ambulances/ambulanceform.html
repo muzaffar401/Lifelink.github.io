@@ -8,15 +8,7 @@
     <title>Ambulance Booking Form</title>
     <link rel="icon" href="/titlelogo.png" type="image/x-icon">
     <style>
-        /* body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        } */
+     
         body {
             background-image: url(/img/1.jpg);
             background-repeat: no-repeat;
@@ -79,8 +71,9 @@
             width: 100%;
             padding: 10px;
             font-size: 16px;
-            background-color: #28a745;
-            color: #fff;
+            font-weight: 800;
+            background-color: #ffffff;
+            color: #000000;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -88,17 +81,17 @@
         }
 
         .submit-btn:hover {
-            background-color: #218838;
+            background-color: #cacaca;
         }
 
         .validation-error {
-            color: red;
+            color: rgb(255, 180, 24);
             font-size: 12px;
             margin-top: 5px;
         }
 
         #background {
-            background-color: #00000085;
+            background-color: rgba(18, 29, 30, 0.5);
         }
     </style>
 </head>
@@ -165,10 +158,11 @@
                 <span class="validation-error" id="areaError"></span>
             </div>
 
-            <button type="submit" class="submit-btn">Book Ambulance</button>
+            <button type="submit" class="submit-btn">BOOK NOW</button>
         </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const form = document.getElementById('ambulanceBookingForm');
         const nameInput = document.getElementById('name');
@@ -209,7 +203,13 @@
                 area: areaInput.value
             };
             localStorage.setItem('ambulanceBookingData', JSON.stringify(formData));
-            alert('Form data has been saved successfully!');
+            Swal.fire({
+                title: 'Success!',
+                text: 'Form data has been saved successfully!',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+            });
         }
 
         // Name Validation
@@ -312,26 +312,56 @@
             const currentUser = localStorage.getItem('currentUser');
 
             if (!currentUser) {
-                // Show popup asking user to log in if currentUser is not available
-                alert('Please log in to your account to book an ambulance.');
-                window.location.href = '/login.html';
+                // Show SweetAlert asking user to log in if currentUser is not available
+                Swal.fire({
+                    title: 'Not Logged In!',
+                    text: 'Please log in to your account to book an ambulance.',
+                    icon: 'warning',
+                    confirmButtonText: 'Log In'
+                }).then(() => {
+                    window.location.href = '/login.html';
+                });
                 form.reset();
                 event.preventDefault(); // Prevent form submission
             } else if (errors) {
                 event.preventDefault(); // Prevent submission if there are validation errors
+                Swal.fire({
+                    title: 'Form Error',
+                    text: 'Please fix the highlighted errors before submitting.',
+                    icon: 'error'
+                });
             } else {
                 event.preventDefault(); // Prevent default form submission
 
                 // Show confirmation popup
-                const isConfirmed = confirm('Are you sure you want to submit the form?');
-                if (isConfirmed) {
-                    saveFormData(); // Save form data to local storage
-                    form.reset(); // Reset the form fields
-                    window.location.href = 'ambulanceTracking.html';
-                }
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'Do you want to submit the form?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, submit it!',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Booking successful!",
+                            icon: "success",
+                            timer: 2000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        }).then(() => {
+                            saveFormData(); // Save form data to local storage
+                            form.reset(); // Reset the form fields
+                            window.location.href = 'ambulanceTracking.html';
+                        });
+                    }
+                });
             }
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 

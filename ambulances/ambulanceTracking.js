@@ -14,11 +14,27 @@ locationDetails.style.display = 'none';
 // Fetch the user data from local storage
 const ambulanceBookingData = JSON.parse(localStorage.getItem('ambulanceBookingData'));
 
-// Cancel Button Logic
+// Cancel Button Logic with SweetAlert confirmation
 cancelButton.addEventListener('click', function () {
-    if (confirm("Are you sure you want to cancel the booking?")) {
-        window.location.href = 'ambulanceform.html';
-    }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to cancel the booking?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, cancel it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Cancelled!',
+                'Your booking has been cancelled.',
+                'success'
+            ).then(() => {
+                window.location.href = 'ambulanceform.html';
+            });
+        }
+    });
 });
 
 // Countdown timer logic
@@ -53,12 +69,19 @@ const countdownInterval = setInterval(() => {
             // Clear ambulanceBookingData from local storage
             localStorage.removeItem('ambulanceBookingData');
 
-            // Show the thank you alert and redirect to index
-            alert('Thank you for using our service!');
-            window.location.href = '/index.html';
+            // Show SweetAlert thank you message
+            Swal.fire({
+                title: 'Thank You!',
+                text: 'Thank you for using our service!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = '/index.html';
+            });
         }, 30000); // 30 seconds for the animation
     }
 }, 1000); // 1 second intervals for countdown
+
 
 
 (function ($) {
@@ -130,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function redirectToLogin() {
-    window.location.href = 'login.html';
+    window.location.href = '/login.html';
 
     if (localStorage.getItem('redirectAction')) {
         localStorage.removeItem('redirectAction');
@@ -168,24 +191,58 @@ function updateProfileImage() {
 }
 
 function logout() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('activeUserType');
-    location.assign('index.html');
+    Swal.fire({
+        title: "Logout Successfully!",
+        text: "Your account has been Logout successfully!",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('activeUserType');
+        location.assign('ambulanceTracking.html');
+    });
+
 }
+
 
 
 function removeAccount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Filter out the current user from the users array
     const updatedUsers = users.filter(user => user.username !== currentUser.username);
+
+    // Update the users list in localStorage
     localStorage.setItem('users', JSON.stringify(updatedUsers));
 
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    alert('Account removed');
-    window.location.href = 'index.html';
+    // Show confirmation that the account has been removed
+    Swal.fire({
+        title: "Account removed!",
+        text: "Your account has been successfully deleted.",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        // Clear login information from localStorage
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+
+        // Redirect to index page
+        window.location.href = 'ambulanceTracking.html';
+    });
 }
+
+
+
+
+
+
+
 
 
 

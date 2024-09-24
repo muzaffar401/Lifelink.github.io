@@ -24,40 +24,35 @@
     </div>
     <!-- Spinner End -->
 
+
     <!-- Topbar Start -->
     <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
         <div class="container">
             <div class="row gx-0 align-items-center">
                 <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                     <div class="d-flex flex-wrap">
-                        <div class="border-end border-primary pe-3">
-                            <a href="#" class="text-muted small"><i
-                                    class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                        </div>
+
                         <div class="ps-3">
-                            <a href="mailto:example@gmail.com" class="text-muted small"><i
-                                    class="fas fa-envelope text-primary me-2"></i>example@gmail.com</a>
+                            <a href="mailto:lifelink804@gmail.com" class="text-muted small"><i
+                                    class="fas fa-envelope text-primary me-2"></i>lifelink804@gmail.com</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-flex justify-content-end">
-                        <div class="d-flex border-end border-primary pe-3">
-                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="dropdown ms-3">
-                            <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown"><small><i
-                                        class="fas fa-globe-europe text-primary me-2"></i> English</small></a>
-                            <div class="dropdown-menu rounded">
-                                <a href="#" class="dropdown-item">English</a>
-                                <a href="#" class="dropdown-item">Bangla</a>
-                                <a href="#" class="dropdown-item">French</a>
-                                <a href="#" class="dropdown-item">Spanish</a>
-                                <a href="#" class="dropdown-item">Arabic</a>
-                            </div>
+                        <div class="d-flex pe-3">
+                            <a class="btn p-0 text-primary me-3"
+                                href="https://www.facebook.com/profile.php?id=100059563837220&mibextid=ZbWKwL"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn p-0 text-primary me-3"
+                                href="https://x.com/Muzaffar401?t=5Oo42XPN4flIP3PEomc2Vg&s=09"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn p-0 text-primary me-3"
+                                href="https://www.instagram.com/muzaffar______ahmed?igsh=MXN5amZzcWU4eDRtZg=="><i
+                                    class="fab fa-instagram"></i></a>
+                            <a class="btn p-0 text-primary me-3"
+                                href="https://www.linkedin.com/in/muzaffar-ahmed-b8652b2a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +73,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-0 mx-lg-auto">
-                        <a href="/index.html" class="nav-item nav-link active">Home</a>
+                        <a href="/index.html" class="nav-item nav-link">Home</a>
                         <a href="/about-us/about_us.html" class="nav-item nav-link">About</a>
                         <a href="/services/service.html" class="nav-item nav-link">Services</a>
                         <a href="/gallery/gallery.html" class="nav-item nav-link">Gallery</a>
@@ -99,7 +94,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/ambulances/ambulances.html" class="dropdown-item">All Ambulances</a>
-                                <a href="/feedback/feedback.html" class="dropdown-item">Feedback</a>
+                                <a href="/feedback/feedback.html" class="dropdown-item active">Feedback</a>
                                 <a href="/sitemap/sitemap.html" class="dropdown-item">Site Map</a>
                                 <a href="/faqs/faqs.html" class="dropdown-item">FAQs</a>
                             </div>
@@ -119,35 +114,46 @@
 
             </nav>
 
+            <!-- Offcanvas Profile Section -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile"
                 aria-labelledby="offcanvasProfileLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasProfileLabel">Profile</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                <div class="offcanvas-header bg-primary text-white">
+                    <h5 id="offcanvasProfileLabel" class="mb-0 text-light">Your Profile</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body" id="profile">
-                    <div class="d-flex flex-column align-items-center">
-                        <img id="profileImage" src="user-image-with-black-background.png" alt="Profile Image"
-                            class="rounded-circle mb-3" style="width: 100px; height: 100px;">
-                        <p id="userName" class="mb-3 text-dark fw-bold fs-3"></p>
+                <div class="offcanvas-body text-center bg-light d-flex flex-column align-items-center">
+                    <!-- Profile Image and Upload Button -->
+                    <div class="position-relative mb-4">
+                        <img id="profileImage" src="/img/user-image-with-black-background.png" alt="Profile Image"
+                            class="rounded-circle border border-3 border-primary shadow"
+                            style="width: 120px; height: 120px;">
+                        <button class="btn btn-sm btn-light rounded-circle position-absolute bottom-0 end-0"
+                            style="border: 1px solid #ccc;" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
 
+                    <!-- User Name -->
+                    <h4 id="userName" class="fw-bold text-dark mb-3">John Doe</h4>
+
+                    <!-- Buttons Section -->
+                    <div class="w-100 d-grid gap-2 px-4">
                         <!-- Change Profile Image Button -->
-                        <button class="btn btn-outline-primary mb-3"
-                            onclick="document.getElementById('fileInput').click()">
-                            <i class="fas fa-camera-retro"></i> Change Profile Image
+                        <button class="btn btn-primary mb-2" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-camera-retro me-2"></i>Change Profile Image
                         </button>
                         <input type="file" id="fileInput" accept="image/*" onchange="updateProfileImage()"
                             style="display: none;">
 
                         <!-- Logout Button -->
-                        <button class="btn btn-outline-secondary mb-3" onclick="logout()">
-                            <i class="fas fa-door-open"></i> Logout
+                        <button class="btn btn-outline-secondary mb-2" onclick="logout()">
+                            <i class="fas fa-door-open me-2"></i>Logout
                         </button>
 
                         <!-- Remove Account Button -->
-                        <button class="btn btn-outline-danger" onclick="removeAccount()">
-                            <i class="fas fa-user-times"></i> Remove Account
+                        <button class="btn btn-danger mb-2" onclick="removeAccount()">
+                            <i class="fas fa-user-times me-2"></i>Remove Account
                         </button>
                     </div>
                 </div>
@@ -267,20 +273,26 @@
                         <div class="row g-4">
                             <div class="col-md-6 col-lg-6 col-xl-5">
                                 <div class="footer-item">
-                                    <a href="index.html" class="p-0">
-                                        <h3 class="text-white"><i class="fab fa-slack me-3"></i> Lifelink</h3>
+                                    <a href="/index.html" class="p-0">
+                                        <h3 class="text-white"><i class="fas fa-plus me-2"></i> Lifelink</h3>
                                         <!-- <img src="img/logo.png" alt="Logo"> -->
                                     </a>
-                                    <p class="text-white mb-4">Dolor amet sit justo amet elitr clita ipsum elitr
-                                        est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                                    <p class="text-white mb-4">
+                                        LifeLink Ambulance Services offers 24/7 emergency transport with modern
+                                        ambulances and skilled medical staff, ensuring rapid response and safe patient
+                                        care.</p>
                                     <div class="footer-btn d-flex">
-                                        <a class="btn btn-md-square rounded-circle me-3" href="#"><i
+                                        <a class="btn btn-md-square rounded-circle me-3"
+                                            href="https://www.facebook.com/profile.php?id=100059563837220&mibextid=ZbWKwL"><i
                                                 class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-md-square rounded-circle me-3" href="#"><i
+                                        <a class="btn btn-md-square rounded-circle me-3"
+                                            href="https://x.com/Muzaffar401?t=5Oo42XPN4flIP3PEomc2Vg&s=09"><i
                                                 class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-md-square rounded-circle me-3" href="#"><i
+                                        <a class="btn btn-md-square rounded-circle me-3"
+                                            href="https://www.instagram.com/muzaffar______ahmed?igsh=MXN5amZzcWU4eDRtZg=="><i
                                                 class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-md-square rounded-circle me-0" href="#"><i
+                                        <a class="btn btn-md-square rounded-circle me-0"
+                                            href="https://www.linkedin.com/in/muzaffar-ahmed-b8652b2a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
                                                 class="fab fa-linkedin-in"></i></a>
                                     </div>
                                 </div>
@@ -288,60 +300,28 @@
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="footer-item">
                                     <h4 class="text-white mb-4">Useful Links</h4>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Gallery</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Site Map</a>
-                                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                                    <a href="/about-us/about_us.html"><i class="fas fa-angle-right me-2"></i> About
+                                        Us</a>
+                                    <a href="/gallery/gallery.html"><i class="fas fa-angle-right me-2"></i> Gallery</a>
+                                    <a href="/services/service.html"><i class="fas fa-angle-right me-2"></i>
+                                        Services</a>
+                                    <a href="/faqs/faqs.html"><i class="fas fa-angle-right me-2"></i> FAQ's</a>
+                                    <a href="/sitemap/sitemap.html"><i class="fas fa-angle-right me-2"></i> Site Map</a>
+                                    <a href="/contact-us/contact.html"><i class="fas fa-angle-right me-2"></i>
+                                        Contact</a>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="footer-item">
-                                    <h4 class="mb-4 text-white">Gallery</h4>
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-69052.jpg"
-                                                    class="img-fluid w-100" alt="">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
-                                                    class="img-fluid w-100" alt="">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
-                                                    class="img-fluid w-100" alt="">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
-                                                    class="img-fluid w-100" alt="">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
-                                                    class="img-fluid w-100" alt="">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="footer-instagram rounded">
-                                                <img src="https://img.freepik.com/premium-photo/ambulance-emergency-response-vehicle-take-medical-victims-hospital_1061358-68587.jpg"
-                                                    class="img-fluid w-100" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h4 class="text-white mb-4">Types of Vehicle</h4>
+                                    <a href="/categoryAmbulances/catAmbulance.html"><i
+                                            class="fas fa-angle-right me-2"></i>AC</a>
+                                    <a href="/categoryAmbulances/catAmbulance.html"><i
+                                            class="fas fa-angle-right me-2"></i>NON AC</a>
+                                    <a href="/categoryAmbulances/catAmbulance.html"><i
+                                            class="fas fa-angle-right me-2"></i>ICU</a>
+                                    <a href="/categoryAmbulances/catAmbulance.html"><i
+                                            class="fas fa-angle-right me-2"></i>ICCU</a>
                                 </div>
                             </div>
                         </div>
@@ -352,13 +332,16 @@
                 <div class="col-xl-3">
                     <div class="footer-item">
                         <h4 class="text-white mb-4">Newsletter</h4>
-                        <p class="text-white mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum
-                            dolor sit amet, consectetur adipiscing elit.</p>
+                        <p class="text-white mb-3">Join our newsletter for updates on ambulance services, community
+                            stories, and events. Discover how LifeLink is making a difference in Pakistan and how you
+                            can help!</p>
                         <div class="position-relative rounded-pill mb-4">
-                            <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                            <input id="email-input" class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text"
                                 placeholder="Enter your email">
-                            <button type="button"
-                                class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">SignUp</button>
+                            <button type="button" id="signup-button"
+                                class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">
+                                Send
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -367,9 +350,87 @@
     </div>
 
 
+
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init("okvCbtUMQCQZq8QmT");
+
+        // Get references to the input and button elements
+        const emailInput = document.getElementById('email-input');
+        const signupButton = document.getElementById('signup-button');
+
+        // Function to validate email
+        function validateEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation pattern
+            return emailPattern.test(email);
+        }
+
+        // Email input validation on keyup
+        emailInput.addEventListener('keyup', () => {
+            if (validateEmail(emailInput.value)) {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+            } else {
+                emailInput.classList.remove('is-valid');
+                emailInput.classList.add('is-invalid');
+            }
+        });
+
+        // Handle signup button click
+        signupButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            if (validateEmail(email)) {
+                // Send email using EmailJS to admin
+                emailjs.send("service_sxt2twp", "template_sbv8eta", {
+                    to_name: "Admin", // Name of the admin receiving the email
+                    from_name: email, // User's email to show who subscribed
+                    message: `A new user has subscribed with the email: ${email}.`, // Notification message for the admin
+                })
+                    .then((response) => {
+                        // Show success alert with SweetAlert
+                        Swal.fire({
+                            title: `Thank you for subscribing!`,
+                            icon: "success",
+                            timer: 2000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        }).then(() => {
+
+                            // Redirect to home or index page
+                            window.location.href = "feedback.html";
+                        });
+
+                        // Reset the form by clearing the input field and removing validation classes
+                        emailInput.value = ''; // Clear the input field
+                        emailInput.classList.remove('is-valid', 'is-invalid'); // Remove validation classes
+
+                        console.log("SUCCESS!", response.status, response.text);
+                    })
+                    .catch((error) => {
+                        // Show error alert with SweetAlert if email sending fails
+                        Swal.fire({
+                            icon: "error",
+                            title: "Failed to Send",
+                            text: "Failed to send the subscription notification. Please try again!"
+                        });
+                        console.error("FAILED...", error);
+                    });
+            } else {
+                // Show error alert if email validation fails
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Please enter a valid email address!"
+                });
+            }
+        });
+
+
+    </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();

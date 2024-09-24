@@ -23,9 +23,9 @@ const generateCard = (ambulance) => {
 };
 
 // Function to generate a section for each ambulance type
-const generateSection = (ambulanceType, title) => {
+const generateSection = (ambulanceType, title, typeClass) => {
     const section = document.createElement('div');
-    section.classList.add('ambulance-section');
+    section.classList.add('ambulance-section', typeClass); // Add a custom class
 
     const heading = `<h2 class="mt-5 mb-3 text-center">${title}</h2>`;
     let cardsHtml = '';
@@ -45,10 +45,10 @@ const fetchData = async () => {
         const data = await response.json();
 
         const ambulanceContainer = document.getElementById('ambulance-container');
-        ambulanceContainer.appendChild(generateSection(data['ac-amb'], 'AC Ambulances'));
-        ambulanceContainer.appendChild(generateSection(data['non-ac-amb'], 'Non-AC Ambulances'));
-        ambulanceContainer.appendChild(generateSection(data['icu-amb'], 'ICU Ambulances'));
-        ambulanceContainer.appendChild(generateSection(data['iccu-amb'], 'ICCU Ambulances'));
+        ambulanceContainer.appendChild(generateSection(data['ac-amb'], 'AC Ambulances', 'ac-ambulance'));
+        ambulanceContainer.appendChild(generateSection(data['non-ac-amb'], 'Non-AC Ambulances', 'non-ac-ambulance'));
+        ambulanceContainer.appendChild(generateSection(data['icu-amb'], 'ICU Ambulances', 'icu-ambulance'));
+        ambulanceContainer.appendChild(generateSection(data['iccu-amb'], 'ICCU Ambulances', 'iccu-ambulance'));
     } catch (error) {
         console.error('Error fetching the ambulance data:', error);
     }
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function redirectToLogin() {
-    window.location.href = 'login.html';
+    window.location.href = '/login.html';
 
     if (localStorage.getItem('redirectAction')) {
         localStorage.removeItem('redirectAction');
@@ -172,24 +172,56 @@ function updateProfileImage() {
 }
 
 function logout() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('activeUserType');
-    location.assign('index.html');
+    Swal.fire({
+        title: "Logout Successfully!",
+        text: "Your account has been Logout successfully!",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('activeUserType');
+        location.assign('catAmbulance.html');
+    });
+
 }
+
 
 
 function removeAccount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Filter out the current user from the users array
     const updatedUsers = users.filter(user => user.username !== currentUser.username);
+
+    // Update the users list in localStorage
     localStorage.setItem('users', JSON.stringify(updatedUsers));
 
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    alert('Account removed');
-    window.location.href = 'index.html';
+    // Show confirmation that the account has been removed
+    Swal.fire({
+        title: "Account removed!",
+        text: "Your account has been successfully deleted.",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        // Clear login information from localStorage
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+
+        // Redirect to index page
+        window.location.href = 'catAmbulance.html';
+    });
 }
+
+
+
+
+
 
 
 

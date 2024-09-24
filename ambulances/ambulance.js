@@ -1,84 +1,121 @@
-// Function to get query parameter (id from the URL)
-const getQueryParam = (param) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-};
+let ambulanceData = [];  // Will hold fetched data
 
-// Function to find the ambulance by ID
-const findAmbulanceById = (id, data) => {
-    for (const category in data) {
-        const ambulance = data[category].find(item => item.id == id);
-        if (ambulance) return ambulance;
-    }
-    return null;
-};
-
-// Fetch ambulance data from JSON
-fetch('catAmbulance.json')
-    .then(response => response.json())
-    .then(data => {
-        // Get the ID from the URL
-        const ambulanceId = getQueryParam('id');
-
-        // Fetch the ambulance data based on the ID
-        const ambulance = findAmbulanceById(ambulanceId, data);
-
-        // Generate the HTML and inject it into the page
-        const ambulanceDetailsContainer = document.getElementById('ambulance-details');
-
-        if (ambulance) {
-            ambulanceDetailsContainer.innerHTML = `
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="${ambulance.image}" class="img-fluid rounded custom-img-height" alt="${ambulance.title}">
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <h2 class="text-center text-primary">${ambulance.title}</h2><br>
-                        
-                        <!-- Display Ambulance Type, Region, and Price -->
-                        <p><strong>Type:</strong> ${ambulance.type}</p>
-                        <p><strong>Region:</strong> ${ambulance.region}</p>
-                        <p><strong>Price:</strong> ${ambulance.price}</p>
-                        
-                        <p>${ambulance.text}</p>
-
-                        <!-- Dropdown for ambulance sizes -->
-                        <div class="mb-4">
-                            <label for="ambulanceSize" class="form-label"><strong>Select Ambulance Size:</strong></label>
-                            <select id="ambulanceSize" class="form-select" aria-label="Select ambulance size">
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
-                            </select>
+// Function to create a card
+function createCard(item) {
+    return `
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="${item.image}" class="img-fluid rounded-top w-100" alt="">
                         </div>
-
-                        <!-- Book Now button -->
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary" onclick="bookAmbulance('${ambulance.id}')">Book Now</button>
-                            <a href="catAmbulance.html" class="btn btn-primary">Back to Ambulances</a>
+                        <div class="service-content p-4">
+                            <div class="service-content-inner">
+                                <a href="#" class="d-inline-block h4 mb-4">${item.title}</a>
+                                <p class="mb-4"><strong>Type:</strong> ${item.type}</p>
+                                <p class="mb-4"><strong>Region:</strong> ${item.region}</p>
+                                <p class="mb-4"><strong>Price:</strong> ${item.price}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
-        } else {
-            ambulanceDetailsContainer.innerHTML = `<p>Ambulance not found.</p>`;
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching ambulance data:', error);
-        const ambulanceDetailsContainer = document.getElementById('ambulance-details');
-        ambulanceDetailsContainer.innerHTML = `<p>Error loading ambulance data. Please try again later.</p>`;
+}
+
+// Function to render cards
+function renderCards(filteredData) {
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = ''; // Clear the container
+
+    filteredData.forEach(item => {
+        cardContainer.innerHTML += createCard(item);
     });
+}
 
-// Book Now function
-function bookAmbulance(ambulanceId) {
-    const ambulanceSize = document.getElementById('ambulanceSize').value;
+// Function to filter and sort based on search input and ambulance type
+function applyFilters() {
+    let filteredData = ambulanceData;
 
-    // Redirect to the form page with query parameters (e.g., ambulance ID and size)
-    window.location.href = `/ambulances/ambulanceform.html?id=${ambulanceId}&size=${ambulanceSize}`;
+    const searchValue = document.getElementById('search').value.trim().toLowerCase();
+    const typeFilter = document.getElementById('filter-type').value.toLowerCase(); // Make type filter case-insensitive
+    const sortOption = document.getElementById('sort-options').value;
+
+    // Search by price, region, and type in a single input
+    if (searchValue) {
+        filteredData = filteredData.filter(item =>
+            item.price.toLowerCase().includes(searchValue) ||
+            item.region.toLowerCase().includes(searchValue) ||
+            item.type.toLowerCase().includes(searchValue)
+        );
+    }
+
+    // Filter by ambulance type from dropdown, ensure case-insensitive comparison
+    if (typeFilter) {
+        filteredData = filteredData.filter(item => item.type.toLowerCase() === typeFilter);
+    }
+
+    // Sorting
+    if (sortOption === 'az') {
+        filteredData = filteredData.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === 'za') {
+        filteredData = filteredData.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    renderCards(filteredData);
 }
 
 
+function newFilters() {
+    let filteredData = ambulanceData;
+
+    const searchValue = document.getElementById('search2').value.trim().toLowerCase();
+    const typeFilter = document.getElementById('filter-type').value.toLowerCase(); // Make type filter case-insensitive
+    const sortOption = document.getElementById('sort-options').value;
+
+    // Search by price, region, and type in a single input
+    if (searchValue) {
+        filteredData = filteredData.filter(item =>
+            item.price.toLowerCase().includes(searchValue) ||
+            item.region.toLowerCase().includes(searchValue) ||
+            item.type.toLowerCase().includes(searchValue)
+        );
+    }
+
+    // Filter by ambulance type from dropdown, ensure case-insensitive comparison
+    if (typeFilter) {
+        filteredData = filteredData.filter(item => item.type.toLowerCase() === typeFilter);
+    }
+
+    // Sorting
+    if (sortOption === 'az') {
+        filteredData = filteredData.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === 'za') {
+        filteredData = filteredData.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    renderCards(filteredData);
+}
+
+
+// Fetch data from JSON file
+fetch('ambulance.json')
+    .then(response => response.json())
+    .then(data => {
+        // Combine all categories into a single array
+        ambulanceData = [
+            ...data['ac-amb'],
+            ...data['non-ac-amb'],
+            ...data['icu-amb'],
+            ...data['iccu-amb']
+        ];
+        renderCards(ambulanceData); // Initial render
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+// Event listeners for search, filter, and sort
+document.getElementById('search').addEventListener('input', applyFilters);
+document.getElementById('search2').addEventListener('input', newFilters);
+document.getElementById('filter-type').addEventListener('change', applyFilters);
+document.getElementById('sort-options').addEventListener('change', applyFilters);
 
 (function ($) {
     "use strict";
@@ -198,7 +235,7 @@ function logout() {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('currentUser');
         localStorage.removeItem('activeUserType');
-        location.assign('ambulanceDetail.html');
+        location.assign('ambulances.html');
     });
 
 }
@@ -229,13 +266,9 @@ function removeAccount() {
         localStorage.removeItem('currentUser');
 
         // Redirect to index page
-        window.location.href = 'ambulanceDetail.html';
+        window.location.href = 'ambulances.html';
     });
 }
-
-
-
-
 
 
 

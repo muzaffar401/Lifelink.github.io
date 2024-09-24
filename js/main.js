@@ -105,24 +105,55 @@ function updateProfileImage() {
 }
 
 function logout() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('activeUserType');
-    location.assign('index.html');
+    Swal.fire({
+        title: "Logout Successfully!",
+        text: "Your account has been Logout successfully!",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('activeUserType');
+        location.assign('index.html');
+    });
+
 }
+
 
 
 function removeAccount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Filter out the current user from the users array
     const updatedUsers = users.filter(user => user.username !== currentUser.username);
+
+    // Update the users list in localStorage
     localStorage.setItem('users', JSON.stringify(updatedUsers));
 
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    alert('Account removed');
-    window.location.href = 'index.html';
+    // Show confirmation that the account has been removed
+    Swal.fire({
+        title: "Account removed!",
+        text: "Your account has been successfully deleted.",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        // Clear login information from localStorage
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+
+        // Redirect to index page
+        window.location.href = 'index.html';
+    });
 }
+
+
+
+
 
 
 
