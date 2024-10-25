@@ -28,8 +28,8 @@ fetch('catAmbulance.json')
 
         if (ambulance) {
             ambulanceDetailsContainer.innerHTML = `
-                <div class="row">
-                    <div class="col-md-6">
+               
+                    <div class="col-md-6 text-center">
                         <img src="${ambulance.image}" class="img-fluid rounded custom-img-height" alt="${ambulance.title}">
                     </div>
                     <div class="col-md-6 mt-5">
@@ -58,7 +58,7 @@ fetch('catAmbulance.json')
                             <a href="catAmbulance.html" class="btn btn-primary">Back to Ambulances</a>
                         </div>
                     </div>
-                </div>
+                
             `;
         } else {
             ambulanceDetailsContainer.innerHTML = `<p>Ambulance not found.</p>`;
