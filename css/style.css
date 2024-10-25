@@ -284,14 +284,20 @@
 /*** Single Page Hero Header End ***/
 
 
-
 /*** Feature Start ***/
 .feature .feature-item {
+    display: flex; /* Make it a flex container */
+    flex-direction: column;  /* Stack content vertically */
+    justify-content: space-between; /* Ensure space between content */
+    align-items: center; /* Center align the content horizontally */
     border-radius: 10px;
     background: var(--bs-white);
     transition: 0.5s;
+    padding: 20px;  /* Padding for better appearance */
+    height: 450px; /* Consistent height */
 }
 
+/* Hover effects */
 .feature .feature-item:hover {
     background: var(--bs-primary);
 }
@@ -337,6 +343,7 @@
 .feature .feature-item h4,
 .feature .feature-item p {
     transition: 0.5s;
+    margin-bottom: 20px; /* Adds space between content */
 }
 
 .feature .feature-item:hover .feature-icon {
@@ -346,6 +353,11 @@
 .feature .feature-item:hover h4,
 .feature .feature-item:hover p {
     color: var(--bs-white);
+}
+
+/* Button alignment */
+.feature .feature-item a.btn {
+    margin-top: auto;  /* Pushes the button to the bottom */
 }
 
 .feature .feature-item:hover a.btn {
@@ -358,7 +370,59 @@
     color: var(--bs-white);
 }
 
+/*** Media Queries for Mobile Responsiveness ***/
+
+/* For devices with a max width of 768px (tablets, small screens) */
+@media (max-width: 768px) {
+    .feature .feature-item {
+        padding: 15px;  /* Reduce padding on smaller screens */
+        height: auto;  /* Let the height adjust automatically */
+    }
+
+    .feature .feature-item .feature-icon {
+        width: 80px; /* Smaller icon size */
+    }
+
+    .feature .feature-item h4 {
+        font-size: 1.2rem; /* Adjust heading size */
+    }
+
+    .feature .feature-item p {
+        font-size: 0.9rem; /* Adjust paragraph size */
+    }
+
+    .feature .feature-item a.btn {
+        font-size: 0.9rem;  /* Adjust button text size */
+        padding: 10px 20px;  /* Reduce button padding for better fit */
+    }
+}
+
+/* For devices with a max width of 480px (mobile phones) */
+@media (max-width: 480px) {
+    .feature .feature-item {
+        padding: 10px;  /* Further reduce padding on mobile */
+    }
+
+    .feature .feature-item .feature-icon {
+        width: 60px; /* Even smaller icon size */
+    }
+
+    .feature .feature-item h4 {
+        font-size: 1rem; /* Smaller heading size */
+    }
+
+    .feature .feature-item p {
+        font-size: 0.8rem; /* Smaller paragraph size */
+    }
+
+    .feature .feature-item a.btn {
+        font-size: 0.8rem;  /* Adjust button text size */
+        padding: 8px 15px;  /* Further reduce button padding */
+    }
+}
 /*** Feature End ***/
+
+
 
 
 /*** Service Start ***/
@@ -526,6 +590,7 @@
 
 .blog .blog-item .blog-img img {
     transition: 0.5s;
+    height: 300px;
 }
 
 .blog .blog-item:hover .blog-img img {
