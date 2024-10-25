@@ -39,8 +39,8 @@
                     <div class="d-flex flex-wrap">
 
                         <div class="ps-3">
-                            <a href="mailto:lifelink804@gmail.com" class="text-muted small"><i
-                                    class="fas fa-envelope text-primary me-2"></i>lifelink804@gmail.com</a>
+                            <a href="mailto:lifelink115@gmail.com" class="text-muted small"><i
+                                    class="fas fa-envelope text-primary me-2"></i>lifelink115@gmail.com</a>
                         </div>
                     </div>
                 </div>
@@ -473,11 +473,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         // Initialize EmailJS with your User ID
-        emailjs.init("okvCbtUMQCQZq8QmT");
+        emailjs.init("eU3wdykStk6PaHL-P"); // Your EmailJS User ID
 
         // Get references to the input and button elements
-        const emailInput = document.getElementById('email-input');
-        const signupButton = document.getElementById('signup-button');
+        const emailInput = document.getElementById('email-input'); // Email input field
+        const signupButton = document.getElementById('signup-button'); // Signup button
 
         // Function to validate email
         function validateEmail(email) {
@@ -498,29 +498,27 @@
 
         // Handle signup button click
         signupButton.addEventListener('click', () => {
-            const email = emailInput.value;
+            const email = emailInput.value; // Get the email input value
+
             if (validateEmail(email)) {
                 // Send email using EmailJS to admin
-                emailjs.send("service_sxt2twp", "template_sbv8eta", {
-                    to_name: "Admin", // Name of the admin receiving the email
-                    from_name: email, // User's email to show who subscribed
-                    message: `A new user has subscribed with the email: ${email}.`, // Notification message for the admin
+                emailjs.send("service_q4wu6rd", "template_lyreh4p", {
+                    from_email: email // User's email to show who subscribed
                 })
                     .then((response) => {
                         // Show success alert with SweetAlert
                         Swal.fire({
-                            title: `Thank you for subscribing!`,
+                            title: "Thank you for subscribing!",
                             icon: "success",
                             timer: 2000,
                             timerProgressBar: true,
                             showConfirmButton: false
                         }).then(() => {
-
                             // Redirect to home or index page
-                            window.location.href = "about_us.html";
+                            window.location.href = "index.html"; // Adjust URL as needed
                         });
 
-                        // Reset the form by clearing the input field and removing validation classes
+                        // Reset the form by clearing the input field
                         emailInput.value = ''; // Clear the input field
                         emailInput.classList.remove('is-valid', 'is-invalid'); // Remove validation classes
 
