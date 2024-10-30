@@ -1,0 +1,262 @@
+{
+    "ac-amb": [
+        {
+            "id": 1,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "sindh",
+            "type": "AC",
+            "image": "/img/ambulance25.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 2,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "punjab",
+            "type": "AC",
+            "image": "/img/ambulance26.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 3,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "Khyber Pakhtunkhwa",
+            "type": "AC",
+            "image": "/img/ambulance27.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 4,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "Balochistan",
+            "type": "AC",
+            "image": "/img/ambulance28.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 5,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "Gilgit-Baltistan",
+            "type": "AC",
+            "image": "/img/ambulance29.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 6,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "Azad Kashmir",
+            "type": "AC",
+            "image": "/img/ambulance30.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        },
+        {
+            "id": 7,
+            "title": "AC-AMBULANCE",
+            "price": "$22",
+            "region": "Islamabad",
+            "type": "AC",
+            "image": "/img/ambulance31.avif",
+            "href":"/categoryAmbulances/AC/ac_Ambulance.html"
+        }
+    ],
+    "non-ac-amb": [
+        {
+            "id": 1,
+            "title": "NON-AC AMBULANCE",
+            "price": "$12",
+            "region": "sindh",
+            "type": "NON-AC",
+            "image": "/img/ambulance25.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 2,
+            "title": "NON-AC-AMBULANCE",
+            "price": "$12",
+            "region": "punjab",
+            "type": "NON-AC",
+            "image": "/img/ambulance31.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 3,
+            "title": "NON-AC- AMBULANCE",
+            "price": "$12",
+            "region": "Khyber Pakhtunkhwa",
+            "type": "NON-AC",
+            "image": "/img/ambulance27.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 4,
+            "title": "NON-AC AMBULANCE",
+            "price": "$12",
+            "region": "Balochistan",
+            "type": "NON-AC",
+            "image": "/img/ambulance28.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 5,
+            "title": "NON-AC AMBULANCE",
+            "price": "$12",
+            "region": "Gilgit-Baltistan",
+            "type": "NON-AC",
+            "image": "/img/ambulance29.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 6,
+            "title": "NON-AC AMBULANCE",
+            "price": "$12",
+            "region": "Azad Kashmir",
+            "type": "NON-AC",
+            "image": "/img/ambulance32.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        },
+        {
+            "id": 7,
+            "title": "NON-AC AMBULANCE",
+            "price": "$12",
+            "region": "Islamabad",
+            "type": "NON-AC",
+            "image": "/img/ambulance33.avif",
+            "href":"/categoryAmbulances/NON_AC/non_ac_Ambulance.html"
+        }
+    ],
+    "icu-amb": [
+        {
+            "id": 1,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "sindh",
+            "type": "ICU",
+            "image": "/img/ambulance25.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 2,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "punjab",
+            "type": "ICU",
+            "image": "/img/ambulance31.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 3,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "Khyber Pakhtunkhwa",
+            "type": "ICU",
+            "image": "/img/ambulance27.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 4,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "Balochistan",
+            "type": "ICU",
+            "image": "/img/ambulance29.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 5,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "Gilgit-Baltistan",
+            "type": "ICU",
+            "image": "/img/ambulance28.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 6,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "Azad Kashmir",
+            "type": "ICU",
+            "image": "/img/ambulance25.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        },
+        {
+            "id": 7,
+            "title": "ICU-AMBULANCE",
+            "price": "$32",
+            "region": "Islamabad",
+            "type": "ICU",
+            "image": "/img/ambulance34.avif",
+            "href":"/categoryAmbulances/ICU/icu_Ambulance.html"
+        }
+    ],
+    "iccu-amb": [
+        {
+            "id": 1,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "sindh",
+            "type": "ICCU",
+            "image": "/img/ambulance25.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 2,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "punjab",
+            "type": "ICCU",
+            "image": "/img/ambulance31.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 3,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "Khyber Pakhtunkhwa",
+            "type": "ICCU",
+            "image": "/img/ambulance27.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 4,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "Balochistan",
+            "type": "ICCU",
+            "image": "/img/ambulance26.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 5,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "Gilgit-Baltistan",
+            "type": "ICCU",
+            "image": "/img/ambulance19.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 6,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "Azad Kashmir",
+            "type": "ICCU",
+            "image": "/img/ambulance18.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        },
+        {
+            "id": 7,
+            "title": "ICCU-AMBULANCE",
+            "price": "$42",
+            "region": "Islamabad",
+            "type": "ICCU",
+            "image": "/img/ambulance17.avif",
+            "href":"/categoryAmbulances/ICCU/iccu_Ambulance.html"
+        }
+    ]
+}
