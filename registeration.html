@@ -123,7 +123,7 @@
 
         function validateUsername() {
             let text = document.querySelector("#text").value;
-            let regex = /^[a-zA-Z]{3,12}$/; // Disallows spaces and only allows letters
+            let regex = /^[a-zA-Z0-9_]{3,30}$/; // Allows letters, numbers, and underscores, min 3, max 30 characters
 
             if (text === "") {
                 document.getElementById("validation1").innerHTML = "Please fill out this field";
@@ -131,19 +131,17 @@
             } else if (text.length < 3) {
                 document.getElementById("validation1").innerHTML = "At least 3 characters are required";
                 document.getElementById("validation1").style.color = "red";
-            } else if (text.length > 12) {
-                document.getElementById("validation1").innerHTML = "No more than 12 characters are allowed";
-                document.getElementById("validation1").style.color = "red";
-            } else if (text.includes(" ")) {
-                document.getElementById("validation1").innerHTML = "Spaces are not allowed in the username";
+            } else if (text.length > 30) {
+                document.getElementById("validation1").innerHTML = "No more than 30 characters are allowed";
                 document.getElementById("validation1").style.color = "red";
             } else if (!regex.test(text)) {
-                document.getElementById("validation1").innerHTML = "Numbers are not allowed";
+                document.getElementById("validation1").innerHTML = "Only letters, numbers, and underscores are allowed";
                 document.getElementById("validation1").style.color = "red";
             } else {
                 document.getElementById("validation1").innerHTML = "";
             }
         }
+
 
         function validateEmail() {
             let email = document.querySelector("#email").value;
@@ -261,7 +259,7 @@
                 passwordIcon.classList.add("fa-eye");
             }
         }
-        
+
         window.addEventListener("beforeunload", function () {
             localStorage.removeItem("justRegistered"); // Remove the registration flag
             clearRegistrationForm(); // Clear the form fields
